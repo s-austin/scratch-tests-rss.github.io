@@ -4,8 +4,7 @@
 <meta charset="utf-8">
 <title>Tests</title>
 <link href="main.css" rel="stylesheet" type="text/css">
-<script type="text/javascript" language="javascript" src="http://www.rssdog.com/index.htm?url=http%3A%2F%2Fdigital.usfsp.edu%2Frecent.rss&amp;mode=javascript&amp;showonly=&amp;maxitems=3&amp;showdescs=1&amp;desctrim=0&amp;descmax=0&amp;tabwidth=100%25&amp;linktarget=_blank&amp;textsize=inherit&amp;bordercol=%23d4d0c8&amp;headbgcol=%23999999&amp;headtxtcol=%23ffffff&amp;titlebgcol=%23f1eded&amp;titletxtcol=%23000000&amp;itembgcol=%23ffffff&amp;itemtxtcol=%23000000&amp;ctl=0">
-</script>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 </head>
 <body>
   <article>
@@ -17,23 +16,27 @@
     <h4>Source</h4>
     <a href="http://digital.usfsp.edu/">http://digital.usfsp.edu/</a>
     <a href="http://digital.usfsp.edu/recent.rss">http://digital.usfsp.edu/recent.rss</a>
-    <h4>Code Reference</h4>
-    <a href="http://www.rssdog.com/">http://www.rssdog.com/</a>
-  </div>
-  <div>Test Follows:</div>   
-   <div>
-      <script type="text/javascript" language="javascript" src="http://www.rssdog.com/index.htm?url=http%3A%2F%2Fdigital.usfsp.edu%2Frecent.rss&amp;mode=javascript&amp;showonly=&amp;maxitems=3&amp;showdescs=1&amp;desctrim=0&amp;descmax=0&amp;tabwidth=100%25&amp;linktarget=_blank&amp;textsize=inherit&amp;bordercol=%23d4d0c8&amp;headbgcol=%23999999&amp;headtxtcol=%23ffffff&amp;titlebgcol=%23f1eded&amp;titletxtcol=%23000000&amp;itembgcol=%23ffffff&amp;itemtxtcol=%23000000&amp;ctl=0">
-</script>
-<noscript> You apparently do not have JavaScript enabled on your browser lest you would be viewing an RSS Feed here from <a href="http://www.rssdog.com/">RSS Dog</a> </noscript>
-       
-      </div> 
-      <div>Second Test Follows</div>
-      <div>
-<script type="text/javascript" language="javascript" src="http://www.rssdog.com/index.htm?url=http%3A%2F%2Fdigital.usfsp.edu%2Frecent.rss&amp;mode=javascript&amp;showonly=&amp;maxitems=3&amp;showdescs=1&amp;desctrim=0&amp;descmax=0&amp;tabwidth=100%25&amp;linktarget=_blank&amp;textsize=inherit&amp;bordercol=%23d4d0c8&amp;headbgcol=%23999999&amp;headtxtcol=%23ffffff&amp;titlebgcol=%23f1eded&amp;titletxtcol=%23000000&amp;itembgcol=%23ffffff&amp;itemtxtcol=%23000000&amp;ctl=0">
-</script>
-<noscript> You apparently do not have JavaScript enabled on your browser lest you would be viewing an RSS Feed here from <a href="http://www.rssdog.com/">RSS Dog</a> </noscript>
-      </div>
     </section>
+    <section>
+      <p id="someElement"></p>
+<p id="anotherElement"></p>
+ 
+<script>
+var xml = "<rss version='2.0'><channel><title>RSS Title</title></channel></rss>",
+  xmlDoc = $.parseXML( xml ),
+  $xml = $( xmlDoc ),
+  $title = $xml.find( "title" );
+ 
+// Append "RSS Title" to #someElement
+$( "#someElement" ).append( $title.text() );
+ 
+// Change the title to "XML Title"
+$title.text( "XML Title" );
+ 
+// Append "XML Title" to #anotherElement
+$( "#anotherElement" ).append( $title.text() );
+</script>
+      </section>  
   </article>
 </body>
 </html>
