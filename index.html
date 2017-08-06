@@ -42,6 +42,7 @@ $( "#anotherElement" ).append( $title.text() );
       <section>
         <header>Test Two</header>
         <script>
+          var FEED_URL = "http://digital.usfsp.edu/recent.rss";
         $.get(FEED_URL, function (data) {
     $(data).find("entry").each(function () { // or "item" or whatever suits your feed
         var el = $(this);
@@ -54,22 +55,7 @@ $( "#anotherElement" ).append( $title.text() );
 });
         </script>
       </section>
-      
-      <section>
-        <header>Test Three</header>
-        <script>
-        $.get(http://digital.usfsp.edu/recent.rss, function (data) {
-    $(data).find("entry").each(function () { // or "item" or whatever suits your feed
-        var el = $(this);
 
-        console.log("------------------------");
-        console.log("title      : " + el.find("title").text());
-        console.log("author     : " + el.find("author").text());
-        console.log("description: " + el.find("description").text());
-    });
-});
-        </script>
-      </section>
   </article>
 </body>
 </html> 
